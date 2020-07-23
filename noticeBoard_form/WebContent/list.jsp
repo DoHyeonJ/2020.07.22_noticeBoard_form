@@ -48,7 +48,8 @@
 <html>
 <head>
 <title>JSP Board</title>
-<link href="style.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 <script type="text/javascript">
 	function list() {
 		document.listFrm.action = "list.jsp";
@@ -81,7 +82,7 @@
 	 }
 </script>
 </head>
-<body bgcolor="#FFFFCC">
+<body>
 <div align="center">
 	<br/>
 	<h2>JSPBoard</h2>
@@ -171,8 +172,10 @@
  				<!-- 페이징 및 블럭 처리 End-->
 				</td>
 				<td align="right">
-					<a href="post.jsp">[글쓰기]</a> 
-					<a href="javascript:list()">[처음으로]</a>
+				<button type="button" class="btn btn-outline-primary" onclick="location.href='post.jsp'">글쓰기</button>
+				<button type="button" class="btn btn-outline-primary" onclick="location.href='javascript:list()'">처음으로</button>
+					<!-- <a href="post.jsp">[글쓰기]</a> --> 
+					<!-- <a href="javascript:list()">[처음으로]</a> -->
 				</td>
 			</tr>
 		</table>
@@ -181,16 +184,22 @@
 	<table width="600" cellpadding="4" cellspacing="0">
  		<tr>
   			<td align="center" valign="bottom">
+  			 <div class="form-group">
+  </div>
    				<select name="keyField" size="1" >
     				<option value="name"> 이 름</option>
     				<option value="subject"> 제 목</option>
     				<option value="content"> 내 용</option>
    				</select>
+
    				<input size="16" name="keyWord">
    				<input type="button"  value="찾기" onClick="javascript:check()">
    				<input type="hidden" name="nowPage" value="1">
+      <input class="form-control mr-sm-2" type="text" placeholder="Search">
+      <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
   			</td>
  		</tr>
+ 		
 	</table>
 	</form>
 	<form name="listFrm" method="post">
