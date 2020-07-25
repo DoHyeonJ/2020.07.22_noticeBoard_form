@@ -47,9 +47,8 @@
 %>
 <html>
 <head>
-<title>JSP Board</title>
+<title>Notice Board</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 <script type="text/javascript">
 	function list() {
 		document.listFrm.action = "list.jsp";
@@ -83,13 +82,15 @@
 </script>
 </head>
 <body>
+<div class="container">
+<div class="container-fluid">
 <div align="center">
 	<br/>
-	<h2>JSPBoard</h2>
+	<h2>Notice Board</h2>
 	<br/>
 	<table align="center" width="600">
 			<tr>
-				<td>Total : <%=totalRecord%>Articles(<font color="red">
+				<td>게시글 : <%=totalRecord%>개(<font color="red">
 				<%=nowPage%>/<%=totalPage%>Pages</font>)</td>
 			</tr>
 	</table>
@@ -103,8 +104,8 @@
 					out.println("등록된 게시물이 없습니다.");
 				  } else {
 			%>
-				  <table width="100%" cellpadding="2" cellspacing="0">
-					<tr align="center" bgcolor="#D0D0D0" height="120%">
+				  <table width="100%" class="table table-hover" >
+					<tr align="center" class="table-info" height="120%">
 						<td>번 호</td>
 						<td>제 목</td>
 						<td>이 름</td>
@@ -181,26 +182,20 @@
 		</table>
 	<hr width="600"/>
 	<form  name="searchFrm"  method="get" action="list.jsp">
-	<table width="600" cellpadding="4" cellspacing="0">
- 		<tr>
-  			<td align="center" valign="bottom">
-  			 <div class="form-group">
-  </div>
-   				<select name="keyField" size="1" >
+	<div class ="row justify-content-md-center">
+	<div class="clo-1">
+   				<select name="keyField" class="form-control">
     				<option value="name"> 이 름</option>
     				<option value="subject"> 제 목</option>
     				<option value="content"> 내 용</option>
    				</select>
-
-   				<input size="16" name="keyWord">
-   				<input type="button"  value="찾기" onClick="javascript:check()">
+   	</div>
+   	<div class ="col-5"> 
+   				<input size="16" class="form-control" name="keyWord">
+   	</div>
+   				<input type="button"  class="btn btn-outline-primary" value="찾기" onClick="javascript:check()">
    				<input type="hidden" name="nowPage" value="1">
-      <input class="form-control mr-sm-2" type="text" placeholder="Search">
-      <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-  			</td>
- 		</tr>
- 		
-	</table>
+ 	</div>
 	</form>
 	<form name="listFrm" method="post">
 		<input type="hidden" name="reload" value="true"> 
@@ -212,6 +207,8 @@
 		<input type="hidden" name="keyField" value="<%=keyField%>"> 
 		<input type="hidden" name="keyWord" value="<%=keyWord%>">
 	</form>
+	</div>
+</div>
 </div>
 </body>
 </html>
