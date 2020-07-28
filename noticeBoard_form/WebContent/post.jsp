@@ -1,68 +1,54 @@
-<%@ page contentType="text/html; charset=EUC-KR" %>
+<%@ page contentType="text/html; charset=EUC-KR"%>
 <html>
 <head>
-<title>JSP Board</title>
-<link href="style.css" rel="stylesheet" type="text/css">
+<title>글쓰기</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+	integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+	crossorigin="anonymous">
 </head>
-<body bgcolor="#FFFFCC">
-<div align="center">
-<br/><br/>
-<table width="600" cellpadding="3">
-	<tr>
-		<td bgcolor="84F399" height="25" align="center">글쓰기</td>
-	</tr>
-</table>
-<br/>
-<form name="postFrm" method="post" action="boardPost" enctype="multipart/form-data">
-<table width="600" cellpadding="3" align="center">
-	<tr>
-		<td align=center>
-		<table align="center">
-			<tr>
-				<td width="10%">성 명</td>
-				<td width="90%">
-				<input name="name" size="10" maxlength="8"></td>
-			</tr>
-			<tr>
-				<td>제 목</td>
-				<td>
-				<input name="subject" size="50" maxlength="30"></td>
-			</tr>
-			<tr>
-				<td>내 용</td>
-				<td><textarea name="content" rows="10" cols="50"></textarea></td>
-			</tr>
-			<tr>
-				<td>비밀 번호</td>
-				<td><input type="password" name="pass" size="15" maxlength="15"></td>
-			</tr>
-			<tr>
-			 <tr>
-     			<td>파일찾기</td> 
-     			<td><input type="file" name="filename" size="50" maxlength="50"></td>
-    		</tr>
- 			<tr>
- 				<td>내용타입</td>
- 				<td> HTML<input type=radio name="contentType" value="HTTP" >&nbsp;&nbsp;&nbsp;
-  			 	TEXT<input type=radio name="contentType" value="TEXT" checked>
-  			 	</td>
- 			</tr>
-			<tr>
-				<td colspan="2"><hr/></td>
-			</tr>
-			<tr>
-				<td colspan="2">
-					 <input type="submit" value="등록">
-					 <input type="reset" value="다시쓰기">
-					 <input type="button" value="리스트" onClick="javascript:location.href='list.jsp'">
-				</td>
-			</tr>
+<body>
+<br></br><br></br>
+	<div class="container">
+		<table class="table table-bordered">
+			<thead>
+			</thead>
+			<tbody>
+				<form action="write_ok.jsp" method="post"
+					encType="multiplart/form-data">
+					<tr>
+						<th>제목:</th>
+						<td><input type="text" placeholder="제목을 입력하세요. "
+							name="subject" class="form-control" /></td>
+					</tr>
+					<tr>
+						<th>내용:</th>
+						<td><textarea cols="50" placeholder="내용을 입력하세요. "
+								name="content" class="form-control"></textarea></td>
+					</tr>
+					<tr>
+						<th>첨부파일:</th>
+						<td><input type="text" placeholder="파일을 선택하세요. "
+							name="filename" class="form-control" /></td>
+					</tr>
+					<tr>
+						<th>비밀번호:</th>
+						<td><input type="password" placeholder="비밀번호를 입력하세요"
+							class="form-control" /></td>
+					</tr>
+					<tr>
+						<td colspan="2"><input type="button" value="등록"
+							onclick="sendData()" class="pull-right" /> <input type="button"
+							value="reset" class="pull-left" /> <input type="button"
+							value="글 목록으로... " class="pull-right"
+							onclick="javascript:location.href='list.jsp'" /> <!-- <a class="btn btn-default" onclick="sendData()"> 등록 </a>
+                    <a class="btn btn-default" type="reset"> reset </a>
+                    <a class="btn btn-default" onclick="javascript:location.href='list.jsp'">글 목록으로...</a> -->
+						</td>
+					</tr>
+				</form>
+			</tbody>
 		</table>
-		</td>
-	</tr>
-</table>
-<input type="hidden" name="ip" value="<%=request.getRemoteAddr()%>">
-</form>
-</div>
+	</div>
 </body>
 </html>
