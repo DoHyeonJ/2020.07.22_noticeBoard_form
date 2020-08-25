@@ -34,28 +34,28 @@
 	}
 </script>
 </head>
-<body bgcolor="#FFFFCC">
+<body>
 <br/><br/>
 <table align="center" width="600" cellspacing="3">
  <tr>
-  <td bgcolor="#9CA2EE" height="25" align="center">글읽기</td>
+  <td height="25" align="center">글읽기</td>
  </tr>
  <tr>
   <td colspan="2">
    <table cellpadding="3" cellspacing="0" width="100%"> 
     <tr> 
   <td align="center" bgcolor="#DDDDDD" width="10%"> 이 름 </td>
-  <td bgcolor="#FFFFE8"><%=name%></td>
+  <td ><%=name%></td>
   <td align="center" bgcolor="#DDDDDD" width="10%"> 등록날짜 </td>
-  <td bgcolor="#FFFFE8"><%=regdate%></td>
+  <td ><%=regdate%></td>
  </tr>
  <tr> 
     <td align="center" bgcolor="#DDDDDD"> 제 목</td>
-    <td bgcolor="#FFFFE8" colspan="3"><%=subject%></td>
+    <td colspan="3"><%=subject%></td>
    </tr>
    <tr> 
      <td align="center" bgcolor="#DDDDDD">첨부파일</td>
-     <td bgcolor="#FFFFE8" colspan="3">
+     <td colspan="3">
      <% if( filename !=null && !filename.equals("")) {%>
   		<a href="javascript:down('<%=filename%>')"><%=filename%></a>
   		 &nbsp;&nbsp;<font color="blue">(<%=filesize%>KBytes)</font>  
